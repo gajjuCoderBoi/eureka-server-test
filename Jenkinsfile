@@ -9,12 +9,10 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Deployment'){
-            steps{
-                dir("users-api"){
-                    script{
-                        pushToCloudFoundry cloudSpace: 'development', credentialsId: 'pcf', organization: 'general-assembly', target: 'api.run.pivotal.io'
-                    }
+        stage('Deployment') {
+            steps {
+                script {
+                    pushToCloudFoundry cloudSpace: 'development', credentialsId: 'pcf', organization: 'general-assembly', target: 'api.run.pivotal.io'
                 }
             }
         }
