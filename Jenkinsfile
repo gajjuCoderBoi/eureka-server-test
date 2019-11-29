@@ -11,9 +11,10 @@ pipeline {
     stages {
         stage('Deployment') {
             steps {
-                script {
-                    pushToCloudFoundry cloudSpace: 'development', credentialsId: 'pcf', organization: 'general-assembly', target: 'api.run.pivotal.io'
-                }
+                sh 'cf push'
+//                script {
+//                    pushToCloudFoundry cloudSpace: 'development', credentialsId: 'pcf', organization: 'general-assembly', target: 'api.run.pivotal.io'
+//                }
             }
         }
     }
